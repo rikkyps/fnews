@@ -47,3 +47,23 @@ class ListNewsFailState extends NewsState {
 }
 
 class OnSelectedListNews extends NewsState {}
+
+class OnLoadFavNewsState extends NewsState {}
+
+class ListFavNewsLoaded extends NewsState {
+  final List<News> value;
+
+  const ListFavNewsLoaded(this.value);
+
+  @override
+  List<Object> get props => [value];
+}
+
+class ListFavNewsFailLoaded extends NewsState {
+  final String message;
+
+  const ListFavNewsFailLoaded(this.message);
+
+  @override
+  List<Object> get props => [message];
+}

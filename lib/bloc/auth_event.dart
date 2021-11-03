@@ -22,3 +22,5 @@ class LoginProcess extends AuthEvent {
   @override
   List<Object> get props => [email, password];
 }
+
+class LogoutEvent extends AuthEvent {}

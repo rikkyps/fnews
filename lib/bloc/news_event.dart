@@ -22,3 +22,5 @@ class LoadListNewsEvent extends NewsEvent {
   const LoadListNewsEvent(this.param);
   List<Object> get() => [param];
 }
+
+class LoadFavNewsEvent extends NewsEvent {}

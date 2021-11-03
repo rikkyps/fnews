@@ -19,6 +19,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         } else {
           emit(LoginFailState(message: result.message));
         }
+      } else if (event is LogoutEvent) {
+        await AuthServices.logOut();
+        emit(LogoutState());
       }
     });
   }

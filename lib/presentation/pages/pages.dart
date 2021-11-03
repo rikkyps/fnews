@@ -7,10 +7,10 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fnews/bloc/blocs.dart';
 import 'package:fnews/models/models.dart';
 import 'package:fnews/presentation/widgets/widgets.dart';
+import 'package:fnews/services/services.dart';
 import 'package:fnews/shared/shared.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flash/flash.dart';
-import 'package:fnews/bloc/auth_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 part 'splash_page.dart';

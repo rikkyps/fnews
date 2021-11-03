@@ -128,7 +128,9 @@ class DetailNewsPage extends StatelessWidget {
           FontAwesomeIcons.heart,
           size: 24,
         ),
-        onPressed: () {},
+        onPressed: () {
+          NewsServices.setFavorite(news);
+        },
         backgroundColor: (isLove) ? primaryColor : Colors.grey,
       ),
     );

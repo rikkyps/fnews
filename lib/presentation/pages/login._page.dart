@@ -190,7 +190,7 @@ class LoginPage extends StatelessWidget {
               content: Text(
                 message,
                 style: headingTextStyle.copyWith(
-                    fontSize: 14, color: Colors.white),
+                    fontSize: 14, color: Colors.black),
               ),
             ),
           );

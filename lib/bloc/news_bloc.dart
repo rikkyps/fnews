@@ -28,6 +28,17 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
         } else {
           emit(ListNewsFailState(message: val.message));
         }
+      } else if (event is LoadFavNewsEvent) {
+        emit(OnLoadFavNewsState());
+
+        await Future.delayed(const Duration(seconds: 3));
+        ReturnValue val = await NewsServices.getFavoriteNews();
+
+        if (val.message == null) {
+          emit(ListFavNewsLoaded(val.value));
+        } else {
+          emit(ListFavNewsFailLoaded(val.message!));
+        }
       }
     });
   }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fnews/presentation/pages/pages.dart';
 import '../../bloc/blocs.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fnews/presentation/router/router_app.dart';

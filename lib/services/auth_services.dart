@@ -25,4 +25,15 @@ class AuthServices {
 
     _pref.setString('uid', uid);
   }
+
+  static Future<void> deleteUid() async {
+    final SharedPreferences _pref = await SharedPreferences.getInstance();
+
+    _pref.remove('uid');
+  }
+
+  static Future<void> logOut() async {
+    await _firebaseAuth.signOut();
+    await deleteUid();
+  }
 }

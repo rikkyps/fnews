@@ -12,6 +12,9 @@ class RouterApp {
       case '/home':
         return MaterialPageRoute(builder: (_) => MainPage());
         break;
+      case '/logout':
+        return MaterialPageRoute(builder: (_) => LoginPage());
+        break;
       default:
         return null;
     }
