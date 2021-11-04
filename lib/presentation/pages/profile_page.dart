@@ -1,7 +1,9 @@
 part of 'pages.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+  ProfilePage({Key? key}) : super(key: key);
+
+  final _user = FirebaseAuth.instance.currentUser;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class ProfilePage extends StatelessWidget {
                     height: 15,
                   ),
                   (state is LoginSuccessState)
-                      ? Text(state.message, style: headingTextStyle)
+                      ? Text(_user!.email!, style: headingTextStyle)
                       : const SizedBox(),
                   const SizedBox(
                     height: 20,

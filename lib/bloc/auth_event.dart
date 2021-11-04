@@ -13,6 +13,8 @@ class AuthCheckEvent extends AuthEvent {}
 
 class LoginEvent extends AuthEvent {}
 
+class LoginGoogleEvent extends AuthEvent {}
+
 class LoginProcess extends AuthEvent {
   final String email;
   final String password;

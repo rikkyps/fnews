@@ -87,26 +87,27 @@ class LoginPage extends StatelessWidget {
                         height: 45,
                         width: double.infinity,
                         child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              primary: primaryColor,
-                              elevation: 0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
+                          style: ElevatedButton.styleFrom(
+                            primary: primaryColor,
+                            elevation: 0,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
                             ),
-                            onPressed: () {
-                              context.read<AuthBloc>().add(LoginEvent());
-                            },
-                            child: (state is OnLoginState)
-                                ? const SpinKitFadingCircle(
-                                    color: Colors.white, size: 30)
-                                : Text(
-                                    'Login',
-                                    style: subHeadingTextStyle.copyWith(
-                                        fontSize: 16,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w400),
-                                  )),
+                          ),
+                          onPressed: () {
+                            context.read<AuthBloc>().add(LoginEvent());
+                          },
+                          child: (state is OnLoginState)
+                              ? const SpinKitFadingCircle(
+                                  color: Colors.white, size: 30)
+                              : Text(
+                                  'Login',
+                                  style: subHeadingTextStyle.copyWith(
+                                      fontSize: 16,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w400),
+                                ),
+                        ),
                       )
                     ],
                   ),
@@ -137,26 +138,31 @@ class LoginPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                    onPressed: () {},
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const FaIcon(
-                          FontAwesomeIcons.google,
-                          size: 24.0,
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          'Sign In with Google',
-                          style: subHeadingTextStyle.copyWith(
-                              fontSize: 16,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w300),
-                        )
-                      ],
-                    ),
+                    onPressed: () {
+                      context.read<AuthBloc>().add(LoginGoogleEvent());
+                    },
+                    child: (state is OnLoginGoogleState)
+                        ? const SpinKitFadingCircle(
+                            color: Colors.white, size: 30)
+                        : Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const FaIcon(
+                                FontAwesomeIcons.google,
+                                size: 24.0,
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                'Sign In with Google',
+                                style: subHeadingTextStyle.copyWith(
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w300),
+                              )
+                            ],
+                          ),
                   ),
                 ),
                 const SizedBox(

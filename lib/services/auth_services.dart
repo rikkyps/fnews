@@ -2,6 +2,8 @@ part of 'services.dart';
 
 class AuthServices {
   static final auth.FirebaseAuth _firebaseAuth = auth.FirebaseAuth.instance;
+  static final GoogleSignIn googleSignIn = GoogleSignIn();
+  static GoogleSignInAccount? _user;
 
   static Future<ReturnValue> loginWithEmail(
       String email, String password) async {
@@ -17,6 +19,22 @@ class AuthServices {
       }
     } catch (e) {
       return ReturnValue(message: 'Gagal');
+    }
+  }
+
+  static Future<ReturnValue> loginWithGoogle() async {
+    final googleUser = await googleSignIn.signIn();
+    if (googleUser == null) {
+      return ReturnValue(message: 'Login Gagal!');
+    } else {
+      _user = googleUser;
+      final googleAuth = await googleUser.authentication;
+      final credential = auth.GoogleAuthProvider.credential(
+          accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
+
+      await _firebaseAuth.signInWithCredential(credential);
+      saveUid(_user!.id);
+      return ReturnValue(value: _user!.email);
     }
   }
 

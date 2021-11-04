@@ -21,7 +21,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
         }
       } else if (event is LoadListNewsEvent) {
         emit(OnSelectedListNews());
-        await Future.delayed(const Duration(seconds: 2));
+        await Future.delayed(const Duration(seconds: 1));
         ReturnValue val = await NewsServices.getListNews(event.param);
         if (val.message == null) {
           emit(ListNewsLoadedState(news: val.value));
@@ -31,7 +31,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
       } else if (event is LoadFavNewsEvent) {
         emit(OnLoadFavNewsState());
 
-        await Future.delayed(const Duration(seconds: 3));
+        await Future.delayed(const Duration(seconds: 1));
         ReturnValue val = await NewsServices.getFavoriteNews();
 
         if (val.message == null) {

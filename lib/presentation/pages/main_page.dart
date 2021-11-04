@@ -40,7 +40,7 @@ class _MainPageState extends State<MainPage> {
                 BlocProvider(
                     create: (context) => NewsBloc()..add(LoadFavNewsEvent()),
                     child: const LikePage()),
-                const ProfilePage(),
+                ProfilePage(),
               ],
             ),
 

@@ -11,6 +11,8 @@ class AuthInitial extends AuthState {}
 
 class OnLoginState extends AuthState {}
 
+class OnLoginGoogleState extends AuthState {}
+
 class LoginSuccessState extends AuthState {
   final String message;
 

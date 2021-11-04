@@ -26,7 +26,7 @@ class _NewsPageState extends State<NewsPage> {
     return BlocConsumer<NewsBloc, NewsState>(
       listener: (context, state) {
         if (state is NewsInitial) {
-          Timer(const Duration(seconds: 3), () {
+          Timer(const Duration(seconds: 1), () {
             context.read<NewsBloc>().add(LoadHeadlineNewsEvent(selectedItem));
           });
         }

@@ -22,6 +22,16 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       } else if (event is LogoutEvent) {
         await AuthServices.logOut();
         emit(LogoutState());
+      } else if (event is LoginGoogleEvent) {
+        emit(OnLoginGoogleState());
+        await Future.delayed(const Duration(seconds: 1));
+        ReturnValue result = await AuthServices.loginWithGoogle();
+
+        if (result.value != null) {
+          emit(LoginSuccessState(result.value));
+        } else {
+          emit(LoginFailState(message: result.message));
+        }
       }
     });
   }
